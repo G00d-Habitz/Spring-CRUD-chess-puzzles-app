@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .chessboard-container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .white {
+            background-color: #dad9b5;
+        }
+
+        .black {
+            background-color: #964d37;
+        }
+
+        .strings-list {
+            width: 20%;
+            height: 67%;
+            padding: 20px;
+            border: 1px solid #000;
+            list-style: none;
+        }
+
+        .strings-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #000;
+
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+<div th:replace="/admin/header :: navbar"></div>
+<br/>
+<h1 th:text="${puzzle.name}" class="text-center"></h1>
+<h1 th:if="${puzzle.name == null}" class="text-center">"Chess is 99% tactics"</h1>
+<h6 th:if="${puzzle.name == null}" class="text-center">~Richard Teichmann</h6>
+<div class="chessboard-container">
+    <div class="chessboard">
+        <div class="chessboard">
+            <div class="square white" th:utext="${puzzle.fen[0]}"></div><div class="square black" th:utext="${puzzle.fen[1]}"></div><div class="square white" th:utext="${puzzle.fen[2]}"></div><div class="square black" th:utext="${puzzle.fen[3]}"></div><div class="square white" th:utext="${puzzle.fen[4]}"></div><div class="square black" th:utext="${puzzle.fen[5]}"></div><div class="square white" th:utext="${puzzle.fen[6]}"></div><div class="square black" th:utext="${puzzle.fen[7]}"></div><div class="square black" th:utext="${puzzle.fen[8]}"></div><div class="square white" th:utext="${puzzle.fen[9]}"></div><div class="square black" th:utext="${puzzle.fen[10]}"></div><div class="square white" th:utext="${puzzle.fen[11]}"></div><div class="square black" th:utext="${puzzle.fen[12]}"></div><div class="square white" th:utext="${puzzle.fen[13]}"></div><div class="square black" th:utext="${puzzle.fen[14]}"></div><div class="square white" th:utext="${puzzle.fen[15]}"></div><div class="square white" th:utext="${puzzle.fen[16]}"></div><div class="square black" th:utext="${puzzle.fen[17]}"></div><div class="square white" th:utext="${puzzle.fen[18]}"></div><div class="square black" th:utext="${puzzle.fen[19]}"></div><div class="square white" th:utext="${puzzle.fen[20]}"></div><div class="square black" th:utext="${puzzle.fen[21]}"></div><div class="square white" th:utext="${puzzle.fen[22]}"></div><div class="square black" th:utext="${puzzle.fen[23]}"></div><div class="square black" th:utext="${puzzle.fen[24]}"></div><div class="square white" th:utext="${puzzle.fen[25]}"></div><div class="square black" th:utext="${puzzle.fen[26]}"></div><div class="square white" th:utext="${puzzle.fen[27]}"></div><div class="square black" th:utext="${puzzle.fen[28]}"></div><div class="square white" th:utext="${puzzle.fen[29]}"></div><div class="square black" th:utext="${puzzle.fen[30]}"></div><div class="square white" th:utext="${puzzle.fen[31]}"></div><div class="square white" th:utext="${puzzle.fen[32]}"></div><div class="square black" th:utext="${puzzle.fen[33]}"></div><div class="square white" th:utext="${puzzle.fen[34]}"></div><div class="square black" th:utext="${puzzle.fen[35]}"></div><div class="square white" th:utext="${puzzle.fen[36]}"></div><div class="square black" th:utext="${puzzle.fen[37]}"></div><div class="square white" th:utext="${puzzle.fen[38]}"></div><div class="square black" th:utext="${puzzle.fen[39]}"></div><div class="square black" th:utext="${puzzle.fen[40]}"></div><div class="square white" th:utext="${puzzle.fen[41]}"></div><div class="square black" th:utext="${puzzle.fen[42]}"></div><div class="square white" th:utext="${puzzle.fen[43]}"></div><div class="square black" th:utext="${puzzle.fen[44]}"></div><div class="square white" th:utext="${puzzle.fen[45]}"></div><div class="square black" th:utext="${puzzle.fen[46]}"></div><div class="square white" th:utext="${puzzle.fen[47]}"></div><div class="square white" th:utext="${puzzle.fen[48]}"></div><div class="square black" th:utext="${puzzle.fen[49]}"></div><div class="square white" th:utext="${puzzle.fen[50]}"></div><div class="square black" th:utext="${puzzle.fen[51]}"></div><div class="square white" th:utext="${puzzle.fen[52]}"></div><div class="square black" th:utext="${puzzle.fen[53]}"></div><div class="square white" th:utext="${puzzle.fen[54]}"></div><div class="square black" th:utext="${puzzle.fen[55]}"></div><div class="square black" th:utext="${puzzle.fen[56]}"></div><div class="square white" th:utext="${puzzle.fen[57]}"></div><div class="square black" th:utext="${puzzle.fen[58]}"></div><div class="square white" th:utext="${puzzle.fen[59]}"></div><div class="square black" th:utext="${puzzle.fen[60]}"></div><div class="square white" th:utext="${puzzle.fen[61]}"></div><div class="square black" th:utext="${puzzle.fen[62]}"></div><div class="square white" th:utext="${puzzle.fen[63]}"></div></div>
+    </div>
+    <div class="strings-list text-center">
+        <h5 class="text-center">Choose a puzzle!</h5>
+        <table>
+            <tbody>
+            <tr th:each="index, indexStat : ${indexes}" th:if="*{indexStat.index % 8 == 0}">
+
+                <th:block th:each="i : ${#numbers.sequence(0, 7)}">
+                <td>
+                        <a th:if="${indexStat.count + i - 1 &lt; indexes.size()}"
+                                th:href="'/admin/puzzle/' + *{indexes[indexStat.index + i]}" th:text="*{indexStat.count + i}"></a>
+                </td>
+                </th:block>
+            </tr>
+            </tbody>
+
+        </table>
+        <h6 th:if="${puzzle.answer != null}">Answer:</h6>
+        <p th:text="${puzzle.answer}"></p>
+
+    </div>
+</div>
+</body>
+</html>

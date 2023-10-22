@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="/admin/header :: header"></div>
+</head>
+<body>
+<div th:replace="/admin/header :: navbar"></div>
+<br/>
+<h1>Edit Puzzle</h1>
+
+<form th:object="${puzzle}" action="/admin/edit" method="post">
+    <label for="id">ID:</label><br>
+    <input type="number" id="id" name="id" th:field="*{id}"><br>
+    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Invalid id</span><br>
+
+    <label for="name">Name/Title:</label><br>
+    <input type="text" id="name" name="name" th:field="*{name}"><br>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Invalid name</span><br>
+
+    <label for="fen">FEN Notation:</label><br>
+    <input type="text" id="fen" name="fen" th:field="*{fen}"><br>
+    <span th:if="${#fields.hasErrors('fen')}" th:errors="*{fen}">Invalid FEN notation</span><br>
+
+    <label for="answer">Answer:</label><br>
+    <textarea id="answer" name="answer" th:field="*{answer}" rows="5"></textarea><br><br>
+    <span th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}">Invalid answer</span><br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+</body>
+</html>

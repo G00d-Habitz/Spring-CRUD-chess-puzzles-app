@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <div th:replace="/admin/header :: header"></div>
+</head>
+<div th:replace="/admin/header :: navbar"></div>
+<body>
+<h1>Puzzle List</h1>
+
+<table class="table table-striped">
+    <thead>zl
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Fen</th>
+        <th>Answer</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="puzzle : ${puzzles}">
+        <td th:text="${puzzle.id}"></td>
+        <td th:text="${puzzle.name}"></td>
+        <td th:text="${puzzle.fen}"></td>
+        <td th:text="${puzzle.answer}"></td>
+        <td>
+            <form th:action="@{'/admin/delete/' + ${puzzle.id}}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
